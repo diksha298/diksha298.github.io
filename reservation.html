@@ -86,7 +86,7 @@
 
                 <!-- Form column -->
                 <div class="col-lg-7 col-12 p-0">
-                  <form class="custom-form booking-form"
+                  <form id="whatsapp-booking-form" class="custom-form booking-form"
                         action="#" method="post"
                         role="form" novalidate
                         aria-label="Book a mehendi appointment">
@@ -250,6 +250,37 @@
   <script src="js/jquery.sticky.js"></script>
   <script src="js/vegas.min.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.getElementById('whatsapp-booking-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var name = form.querySelector('[name="booking-name"]').value.trim();
+        var phone = form.querySelector('[name="booking-phone"]').value.trim();
+        var date = form.querySelector('[name="booking-date"]').value.trim();
+        var time = form.querySelector('[name="booking-time"]').value.trim();
+        var style = form.querySelector('[name="booking-style"]').value;
+        var message = form.querySelector('[name="booking-message"]').value.trim();
+
+        var rawWhatsAppMessage = 'Hi Diksha, I would like to book a mehendi appointment.\n\n'
+          + 'Name: ' + name + '\n'
+          + 'Phone: ' + phone + '\n'
+          + 'Preferred date: ' + date + '\n'
+          + 'Preferred time: ' + time + '\n'
+          + 'Mehendi style: ' + (style || 'Not specified') + '\n'
+          + 'Message: ' + (message || 'None');
+
+        var whatsappNumber = '918878851284';
+        var whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(rawWhatsAppMessage);
+
+        window.location.href = whatsappUrl;
+      });
+    });
+  </script>
 
   <a href="https://wa.me/918878851284?text=Hi%20Diksha%2C%20I%20would%20like%20to%20book%20a%20mehendi%20appointment." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="bi-whatsapp" aria-hidden="true"></i>
