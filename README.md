@@ -3,7 +3,7 @@
 Professional mehendi artist website for **Diksha Soni**, Bengaluru.
 
 ## Live Site
-**https://dikshasoni-mehendi.github.io/**
+**https://diksha298.github.io/**
 
 ## Tech Stack
 - HTML5, CSS3 (custom + Bootstrap 5)
