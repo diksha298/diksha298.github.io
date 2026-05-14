@@ -554,7 +554,7 @@
           </div>
 
           <div class="col-lg-6 col-12">
-            <form action="#" method="post" class="custom-form contact-form"
+            <form id="whatsapp-contact-form" action="#" method="post" class="custom-form contact-form"
                   role="form" novalidate>
               <div class="row">
                 <div class="col-lg-6 col-12">
@@ -679,6 +679,36 @@
   <script src="js/jquery.sticky.js"></script>
   <script src="js/vegas.min.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.getElementById('whatsapp-contact-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var name = form.querySelector('[name="name"]').value.trim();
+        var email = form.querySelector('[name="email"]').value.trim();
+        var message = form.querySelector('[name="message"]').value.trim();
+
+        var rawWhatsAppMessage = 'Hi Diksha, I would like to get in touch about a mehendi appointment.\n\n'
+          + 'Name: ' + name + '\n'
+          + 'Email: ' + email + '\n'
+          + 'Message: ' + (message || 'None');
+
+        var whatsappNumber = '918878851284';
+        var whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(rawWhatsAppMessage);
+
+        window.location.href = whatsappUrl;
+      });
+    });
+  </script>
 
   <a href="https://wa.me/918878851284?text=Hi%20Diksha%2C%20I%20would%20like%20to%20book%20a%20mehendi%20appointment." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="bi-whatsapp" aria-hidden="true"></i>
