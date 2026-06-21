@@ -476,6 +476,14 @@ b, strong { font-weight: var(--font-weight-bold); }
 
 .small-text { color: var(--secondary-color); }
 
+.hero-small-text {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--white-color);
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.35rem;
+}
+
 .hero-section .custom-border-btn { border-color: transparent; }
 .hero-section .container { position: relative; z-index: 9; }
 
