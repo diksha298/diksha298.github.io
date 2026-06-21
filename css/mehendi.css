@@ -323,7 +323,7 @@ b, strong { font-weight: var(--font-weight-bold); }
   color: var(--white-color);
 }
 
-.navbar .navbar-brand-image { filter: brightness(0) invert(1); }
+.navbar .navbar-brand-image { filter: none; }
 
 .navbar-brand-image {
   width: 48px; height: auto;
